@@ -1,0 +1,3 @@
+[general]
+controller_limit = 4
+pause_when_no_controllers = False

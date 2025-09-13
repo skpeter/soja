@@ -1,0 +1,5 @@
+sdl2
+pyautogui
+pywinauto
+configparser
+functools
