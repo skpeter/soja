@@ -153,7 +153,7 @@ def pair_pro_controller():
     print(dlg.print_control_identifiers())
 
 
-def new_func():
+def do_hid_controller_detection():
     global detected_controllers
     while True:
         # perform controller detectiona and emulator handling
@@ -190,4 +190,4 @@ if __name__ == "__main__":
     threading.Thread(target=parsec_accept_all_every_x_secs,
                      daemon=True).start()
     time.sleep(2)
-    new_func()
+    do_hid_controller_detection()
