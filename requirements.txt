@@ -2,4 +2,3 @@ pysdl2
 pyautogui
 pywinauto
 configparser
-functools
