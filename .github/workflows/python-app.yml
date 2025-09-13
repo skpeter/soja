@@ -38,6 +38,11 @@ jobs:
     - name: Copy accompanying files
       run: |
         copy config.ini.example dist\config.ini
+        curl -L -o dist/SDL2.dll https://github.com/libsdl-org/SDL/releases/download/release-2.28.5/SDL2-2.28.5-win32-x64.zip
+        powershell -Command "Expand-Archive -Path dist/SDL2-2.28.5-win32-x64.zip -DestinationPath dist"
+        copy dist/SDL2-2.28.5/x64/SDL2.dll dist/SDL2.dll
+        del dist/SDL2-2.28.5-win32-x64.zip
+        rmdir /s /q dist/SDL2-2.28.5
     - name: Create zip file
       run: |
         cd dist
