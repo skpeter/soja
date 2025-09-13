@@ -1,4 +1,4 @@
-sdl2
+pysdl2
 pyautogui
 pywinauto
 configparser
