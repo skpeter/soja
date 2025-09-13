@@ -18,8 +18,11 @@ def get_config():
 
 
 detected_controllers: int = -1
-CONTROLLER_LIMIT: int = get_config().getint('general', 'controller_limit', fallback=4)
-PAUSE_WHEN_NO_CONTROLLERS: bool = get_config().getboolean('general', 'pause_when_no_controllers', fallback=False)
+config: configparser.ConfigParser = None
+CONTROLLER_LIMIT: int = get_config().getint(
+    'general', 'controller_limit', fallback=4)
+PAUSE_WHEN_NO_CONTROLLERS: bool = get_config().getboolean(
+    'general', 'pause_when_no_controllers', fallback=False)
 
 
 def failsafe_wrap(func):
@@ -150,11 +153,8 @@ def pair_pro_controller():
     print(dlg.print_control_identifiers())
 
 
-if __name__ == "__main__":
-    threading.Thread(target=pair_pro_controller, daemon=True).start()
-    threading.Thread(target=parsec_accept_all_every_x_secs,
-                     daemon=True).start()
-    time.sleep(2)
+def new_func():
+    global detected_controllers
     while True:
         # perform controller detectiona and emulator handling
         controllers = get_controllers()
@@ -183,3 +183,11 @@ if __name__ == "__main__":
                 toggle_fullscreen()
         detected_controllers = len(controllers)
         time.sleep(1)
+
+
+if __name__ == "__main__":
+    threading.Thread(target=pair_pro_controller, daemon=True).start()
+    threading.Thread(target=parsec_accept_all_every_x_secs,
+                     daemon=True).start()
+    time.sleep(2)
+    new_func()
