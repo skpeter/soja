@@ -186,7 +186,7 @@ def new_func():
 
 
 if __name__ == "__main__":
-    threading.Thread(target=pair_pro_controller, daemon=True).start()
+    # threading.Thread(target=pair_pro_controller, daemon=True).start()
     threading.Thread(target=parsec_accept_all_every_x_secs,
                      daemon=True).start()
     time.sleep(2)
