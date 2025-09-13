@@ -1,4 +1,5 @@
 pysdl2
+pysdl2-dll
 pyautogui
 pywinauto
 configparser
